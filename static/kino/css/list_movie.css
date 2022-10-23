@@ -1,0 +1,85 @@
+.title{
+    margin-top: 10px;
+    font-size: 40px;
+}
+.one_movie{
+    margin-top: 20px;
+    height: 350px;
+    width: 1500px;
+    border: 2px solid #05A88D;
+
+}
+.one_movie img{
+    height: 300px;
+    width: 200px;
+    padding: 10px;
+}
+.all_movies{
+
+}
+.info_about_film{
+    margin-top: 15px;
+    font-weight: 300;
+    color: grey;
+}
+.elem_info{
+    margin-top: 15px;
+}
+.description{
+    width: 800px;
+    font-weight: 300;
+    color: grey;
+}
+.p_elem_info{
+    margin-top: 15px;
+    color: black;
+}
+.button{
+    height: 80px;
+    width: 300px;
+    background-color: white;
+    border: 1px solid  #05A88D;
+
+    font-weight: 700;
+    margin-top: 40px;
+
+
+}
+.button:hover{
+    background-color: #256D7B;
+
+}
+.link{
+    padding-top: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #05A88D;
+
+}
+.paginator{
+    list-style-type:none;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around ;
+    align-content: center;
+    width: 500px;
+    height: 70px;
+
+}
+.pags_border{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #256D7B;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+.pags_border:hover{
+    background-color: #BFBFBF;
+}
+.pags{
+    text-decoration: none;
+    color: #05A88D;
+    font-size: 25px;
+
+
+}

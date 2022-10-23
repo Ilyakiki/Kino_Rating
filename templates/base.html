@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>  {% block title %} {% endblock %}  </title>
+    <link rel="stylesheet" href=" {% static 'kino/css/base.css' %}">
+    {% block css %}{% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="menu">
+            <ul class="menu__ul">
+                <li class="menu__li"><a class="menu__link" href="{% url 'movies' %}">Фильмы</a></li>
+                <li class="menu__li"><a class="menu__link" href="#">Добавить фильм</a></li>
+
+                <li class="menu__li"><a class="menu__link" href="#">О нас</a></li>
+            </ul>
+            <a class="menu__logo" href="{% url 'main'%}">KINO RATING</a>
+            <div class="user">
+                <a class="menu__signup" href="#">Sign Up</a>
+                <a class="menu__login" href="#">Login</a>
+            </div>
+        </nav>
+    </header>
+   {% block content %} {% endblock %}
+    <footer class="footer">
+        <div>
+            <h5 class="footer__text__left">© 2022 — 2022,Kino Rating 18+</h5>
+        </div>
+
+    </footer>
+</body>
+</html>

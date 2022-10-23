@@ -1,0 +1,16 @@
+
+{%extends 'base.html'%}
+{% load static %}
+{% block title %}Еть{% endblock %}
+{% block css %}<link rel="stylesheet" href=" {% static 'kino/css/main.css' %}">{% endblock %}
+{% block content %}
+    <div class="image">
+	    <img src="https://kurieronline.ru/uploads/new_photos/1e/ee/1eeeb8ea07ceaddf173410e5e94e484f.jpg" alt="">
+        <div class="image-text">
+            <p>С помощью проекта Kino Rating Вы можете максимально просто выбрать подходящий вам фильм, основываясть на отзывах и предпочтениях реальных людей.</p>
+            <a href="{% url 'movies' %}" class="to_film">К ФИЛЬМАМ</a>
+        </div>
+
+    </div>
+{% endblock %}
+
