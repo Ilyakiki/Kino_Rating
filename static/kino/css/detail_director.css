@@ -1,0 +1,34 @@
+.title{
+    margin-top: 10px;
+    font-size: 40px;
+}
+.one_director{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 500px;
+    width: 1872px;
+    border: 2px solid #256D7B;
+
+}
+.one_director img{
+    height: 450px;
+    width: 300px;
+    padding: 10px;
+}
+.all_directors{
+
+}
+.info_about_director{
+    padding-left: 20px;
+    margin-top: 15px;
+    font-weight: 300;
+    color: grey;
+}
+.elem_info{
+    margin-top: 15px;
+}
+.description{
+    width: 800px;
+    font-weight: 300;
+    color: grey;
+}

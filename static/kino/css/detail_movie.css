@@ -1,0 +1,42 @@
+.title{
+    margin-top: 10px;
+    font-size: 40px;
+}
+.one_movie{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 500px;
+    width: 1872px;
+    border: 2px solid #256D7B;
+
+}
+.one_movie img{
+    height: 450px;
+    width: 300px;
+    padding: 10px;
+}
+.all_movies{
+
+}
+.info_about_movie{
+    padding-left: 20px;
+    margin-top: 15px;
+    font-weight: 300;
+    color: grey;
+}
+.elem_info{
+    margin-top: 15px;
+}
+.description{
+    width: 800px;
+    font-weight: 300;
+    color: grey;
+}
+.link{
+    text-decoration: none;
+    color:#256D7B;
+}
+.link:hover{
+    text-decoration: none;
+    color:#05A88D;
+}

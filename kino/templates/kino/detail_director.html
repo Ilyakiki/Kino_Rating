@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Режиссер - {{ director.first_name }} {{ director.last_name }}{% endblock %}
+
+{% block css%}<link rel="stylesheet" href=" {% static 'kino/css/detail_director.css' %}">{% endblock %}
+
+{% block content%}
+    <div class="one_director">
+        <h2 align="center">{{ director.first_name }} {{ director.second_name }}</h2>
+        <img src="{{ director.image.url }}" alt="" align="left">
+        <div class="info_about_director" align="left">
+            <h3 class="elem_info">Дата рождения: {{ director.date_of_birth }}</h3>
+            <br>
+            <h3 class="elem_info">Место рождения: {{ director.place_of_birth }}</h3>
+            <br>
+            <h3 class="elem_info">Рост: {{ director.height }}</h3>
+            <br>
+            <h3 class="elem_info">Жанры: {{ director.genres }}</h3>
+            <br>
+            <h3 class="elem_info">Интересный факт: {{ director.interesting_fact }}</h3>
+            <br>
+            <h3 class="elem_info">Количество оскаров: {{ director.numbers_of_oscar }}</h3>
+
+        </div>
+    </div>
+    
+{% endblock %}

@@ -2,12 +2,24 @@
 {% load static %}
 {% block title%}Фильм - {{ movie.title }}{% endblock %}
 
-{% block css%}<link rel="stylesheet" href=" {% static 'kino/css/detail.css' %}">{% endblock %}
+{% block css%}<link rel="stylesheet" href="{% static 'kino/css/detail_movie.css' %}">{% endblock %}
 
 {% block content%}
-    <div class="detail">
-        <h1 align="center"> {{ movie.title }}</h1>
-        <img src="{{ movie.image.url }}" alt="">
+    <div class="one_movie">
+        <h2 align="center">{{ movie.title }}</h2>
+        <img src="{{ movie.image.url }}" alt="" align="left">
+        <div class="info_about_movie" align="left">
+            <h3 class="elem_info">Год выхода: {{ movie.year }}</h3>
+            <br>
+            <h3 class="elem_info">Бюджет: {{ movie.budget }} млн. $</h3>
+            <br>
+            <h3 class="elem_info">Режиссер: <a href="http://127.0.0.1:8000/directors/{{ movie.director_id }}" class="link">{{ movie.director }}</a></h3>
+            <br>
+            <h3 class="elem_info">Описание: {{ movie.description }}</h3>
+            <br>
+
+
+        </div>
     </div>
     
 {% endblock %}
