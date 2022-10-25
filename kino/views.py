@@ -28,3 +28,8 @@ class ListMovie(ListView):
         queryset = super().get_queryset()
         # filtered_qs=queryset.filter(rating__gt=4)
         return queryset
+
+
+class DetailMovie(DetailView):
+    template_name = 'kino/detail_view.html'
+    model=Movie
