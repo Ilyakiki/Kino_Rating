@@ -23,5 +23,14 @@
 
         </div>
     </div>
+    <h2 align="center">Фильмы</h2>
+    <div class="films" align="center">
+        {% for movie in director.movie_set.all %}
+            <div class="one_film">
+                <img src="{{ movie.image.url }}" alt="" height=300px width=200px>
+                <h3><a href="http://127.0.0.1:8000/movies/{{ movie.id }}" class="movie_link">{{ movie.title }}</a></h3>
+            </div>
+        {% endfor %}
+    </div>
     
 {% endblock %}

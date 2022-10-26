@@ -34,6 +34,9 @@ class DetailMovie(DetailView):
     template_name = 'kino/detail_view.html'
     model=Movie
 
+    def get_absolute_url(self):
+        return reverse('movie_detail',kwargs={'pk':self.pk_url_kwarg})
+
 class DetailDirector(DetailView):
     template_name = 'kino/detail_director.html'
     model=Director

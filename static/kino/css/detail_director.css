@@ -32,3 +32,27 @@
     font-weight: 300;
     color: grey;
 }
+.films{
+    margin:0 auto;
+    padding-top: 10px;
+    max-width: 930px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+
+}
+.one_film{
+    width: 200px;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+.movie_link{
+    text-decoration: none;
+    color: black;
+}
+.movie_link:hover{
+    text-decoration: none;
+    color: #256D7B;
+}
