@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-#from .forms import FeedbackForm, RegisterUserForm,LoginUserForm
+from .forms import RegisterUserForm,LoginUserForm
 from django.views import View
 from .models import Movie,Director
 from django.views.generic.base import TemplateView
@@ -50,3 +50,32 @@ class ListDirector(ListView):
         queryset = super().get_queryset()
         # filtered_qs=queryset.filter(rating__gt=4)
         return queryset
+
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'kino/register.html'
+    success_url = 'kino/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def form_valid(self, form):
+        user=form.save()
+        login(self.request,user)
+        return HttpResponseRedirect('/')
+
+class LoginUser(LoginView):
+    form_class = LoginUserForm
+    template_name = 'kino/login.html'
+
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        return context
+
+    def get_success_url(self):
+        return reverse('main')
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('login')

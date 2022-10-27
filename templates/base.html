@@ -21,8 +21,15 @@
             </ul>
             <a class="menu__logo" href="{% url 'main'%}">KINO RATING</a>
             <div class="user">
-                <a class="menu__signup" href="#">Sign Up</a>
-                <a class="menu__login" href="#">Login</a>
+                {% if user.is_authenticated %}
+                    <a class="menu__signup" href="#">{{user.username|title}}</a>
+                    <a class="menu__login" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a class="menu__signup" href="{% url 'register' %}">Sign Up</a>
+                    <a class="menu__login" href="{% url 'login' %}">Login</a>
+
+                {% endif %}
+
             </div>
         </nav>
     </header>

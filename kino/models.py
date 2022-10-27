@@ -3,9 +3,11 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from django.core.validators import MaxValueValidator, MinValueValidator
+from .validators import validate_file_extension
 
 
 # Create your models here.
+
 
 class Director(models.Model):
     '''Модель для описания режиссера'''

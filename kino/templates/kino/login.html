@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Вход{% endblock %}
+{% block css %}<link rel="stylesheet" href=" {% static 'kino/css/login.css' %}">{% endblock %}
+
+{% block content %}
+    <div class="block" align="center">
+        <div class="login">
+            <h1>Вход</h1>
+            <form method="post">
+                {% csrf_token %}
+                {% for f in form %}
+                    <p class="field"><label for="{{ f.id.for_label }}" class="lable">{{ f.label }}</label>{{ f }}</p>
+                {% endfor %}
+                <button type="submit" class="button_login">Войти</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

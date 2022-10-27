@@ -1,0 +1,30 @@
+.login{
+    margin: 200px auto;
+    width: 500px;
+    height: 200px;
+    border:2px solid #05A88D;
+    padding-top: 10px;
+}
+.field_register label{
+    padding-top: 10px;
+
+}
+.lable{
+    color: #256D7B;
+    font-size: 25px;
+}
+.field{
+    padding-top: 10px;
+}
+.button_login{
+    margin-top: 20px;
+    height: 50px;
+    width: 150px;
+    background-color: #256D7B;
+    border: #D0EEF6;
+    color: #D0EEF6;
+}
+.block{
+    width: 1872px;
+    height: 470px;
+}
