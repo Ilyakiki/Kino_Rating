@@ -16,7 +16,7 @@ body{
     display: flex;
     justify-content: space-between;
     position: relative;
-    width: 1872px;
+    width: 1900px;
     height: 150px;
 
     background: #FFFFFF;
@@ -77,9 +77,6 @@ body{
     text-decoration: none;
     width: 200px;
     height: 29px;
-
-
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
     font-size: 29px;
@@ -100,7 +97,7 @@ body{
 }
 .footer{
     background-color: #256D7B;
-    width: 1872px;
+    width: 1903px;
     height: 150px;
     display: flex;
     align-items: center;

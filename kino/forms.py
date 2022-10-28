@@ -23,3 +23,4 @@ class RegisterUserForm(UserCreationForm):
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label = 'Логин')
     password = forms.CharField(label = 'Пароль')
+

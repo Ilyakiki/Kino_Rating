@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Актер - {{ actor.first_name }} {{ actor.last_name }}{% endblock %}
+
+{% block css%}<link rel="stylesheet" href=" {% static 'kino/css/detail_actor.css' %}">{% endblock %}
+
+{% block content%}
+    <div class="one_actor">
+        <h2 align="center">{{ actor.first_name }} {{ actor.second_name }}</h2>
+        <img src="{{ actor.image.url }}" alt="" align="left">
+        <div class="info_about_actor" align="left">
+            <h3 class="elem_info">Дата рождения: {{ actor.date_of_birth }}</h3>
+            <br>
+            <h3 class="elem_info">Место рождения: {{ actor.place_of_birth }}</h3>
+            <br>
+            <h3 class="elem_info">Рост: {{ actor.height }}</h3>
+            <br>
+            <h3 class="elem_info">Интересный факт: {{ actor.interesting_fact }}</h3>
+            <br>
+            <h3 class="elem_info">Количество оскаров: {{ actor.numbers_of_oscar }}</h3>
+
+        </div>
+    </div>
+{% endblock %}

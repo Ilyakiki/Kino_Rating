@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import RegisterUserForm,LoginUserForm
 from django.views import View
-from .models import Movie,Director
+from .models import Movie,Director,Actor
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView
@@ -33,6 +34,9 @@ class ListMovie(ListView):
 class DetailMovie(DetailView):
     template_name = 'kino/detail_view.html'
     model=Movie
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        return context
 
     def get_absolute_url(self):
         return reverse('movie_detail',kwargs={'pk':self.pk_url_kwarg})
@@ -51,6 +55,20 @@ class ListDirector(ListView):
         # filtered_qs=queryset.filter(rating__gt=4)
         return queryset
 
+class ListActor(ListView):
+    paginate_by = 5  # Пагинация
+    template_name = 'kino/list_actors.html'
+    model = Actor
+    context_object_name = 'Actors'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        # filtered_qs=queryset.filter(rating__gt=4)
+        return queryset
+
+class DetailActor(DetailView):
+    template_name = 'kino/detail_actor.html'
+    model = Actor
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'kino/register.html'

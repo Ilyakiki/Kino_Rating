@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block title %}Все Актеры{% endblock %}
+{% block css %}<link rel="stylesheet" href=" {% static 'kino/css/list_actor.css' %}">{% endblock %}
+
+{% block content %}
+    <h2 class="title" align="center">Все Актеры</h2>
+    <div class="all_actors" align="center">
+    {% for actor in Actors %}
+        <div class="one_actor" >
+        <h2 align="center">{{ actor.first_name }} {{ actor.second_name }}</h2>
+        <img src="{{ actor.image.url }}" alt="" align="left">
+        <div class="info_about_actor" align="left">
+            <h3 class="elem_info">Дата рождения: {{ actor.date_of_birth }}</h3>
+            <h3 class="elem_info">Рост: {{ actor.height }}</h3>
+            <h3 class="elem_info">Количество Оскаров: {{ actor.numbers_of_oscar }}</h3>
+        </div>
+        <div class="button">
+            <div class="link">
+                <a href="{{ actor.id }}" class="link">К Актеру</a>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    <div class="paginator">
+            {% for p in page_obj.paginator.page_range  %}
+                <li class="pags_border">
+                    <a href="?page={{ p }}" class="pags">{{ p }}</a>
+                </li>
+            {% endfor %}
+    </div>
+    </div>
+{% endblock %}

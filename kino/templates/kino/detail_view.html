@@ -17,9 +17,8 @@
             <br>
             <h3 class="elem_info">Описание: {{ movie.description }}</h3>
             <br>
-
+            <h3 class="elem_info">Актеры: <div class="actors">{%  for actor in movie.actors.all%} <a href="http://127.0.0.1:8000/actors/{{ actor.id }}" class="actor">{{ actor.first_name }} {{ actor.second_name}} <br></a> {% endfor %}</div></h3>
 
         </div>
     </div>
-    
 {% endblock %}
