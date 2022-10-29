@@ -18,7 +18,10 @@
             <h3 class="elem_info">Описание: {{ movie.description }}</h3>
             <br>
             <h3 class="elem_info">Актеры: <div class="actors">{%  for actor in movie.actors.all%} <a href="http://127.0.0.1:8000/actors/{{ actor.id }}" class="actor">{{ actor.first_name }} {{ actor.second_name}} <br></a> {% endfor %}</div></h3>
-
         </div>
+    </div>
+    <div class="preview" align="center">
+        <h1>Смотреть фильм</h1>
+        <iframe src="{{ movie.link_on_youtube }}" class ="video" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
     </div>
 {% endblock %}

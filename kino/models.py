@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
-from .validators import validate_file_extension
 
 
 # Create your models here.
@@ -42,7 +41,7 @@ class Director(models.Model):
 
 
 class Movie(models.Model):
-    
+    '''Модель для описания фильма'''
     title = models.CharField(max_length=100)
     year = models.IntegerField(blank=True)
     budget = models.IntegerField(validators=[MinValueValidator(1)])
@@ -50,6 +49,7 @@ class Movie(models.Model):
     image = models.FileField(upload_to='my_gallery')
     description = models.CharField(max_length=10000)
     actors=models.ManyToManyField(Actor)
+    link_on_youtube=models.CharField(max_length=1000,null=True)
 
     def __str__(self):
         return f'{self.title} {self.budget}'  # Для отображения в админ панели

@@ -83,3 +83,20 @@
 
 
 }
+.search_head{
+    text-align: center;
+}
+.search_bar{
+    margin: 0 auto;
+    width: 700px;
+    height: 80px;
+    padding-top: 20px;
+
+
+}
+.form_control{
+    width: 500px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}

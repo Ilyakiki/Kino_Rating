@@ -4,9 +4,18 @@
 {% block css %}<link rel="stylesheet" href=" {% static 'kino/css/list_movie.css' %}">{% endblock %}
 
 {% block content %}
+    <div class="search_bar" align="center">
+        <h2 class="search_head">Поиск фильма</h2>
+        <form action="{% url 'search' %}" method="get" class="form">
+            <input type="search" placeholder="Введите название фильма..." name="q" class="form_control" required="">
+            <button type="submit" class="btn1">
+                <span class="search" aria-hidden="true"></span>
+            </button>
+        </form>
+    </div>
     <h2 class="title" align="center">Все фильмы</h2>
     <div class="all_movies" align="center">
-    {% for movie in Movies %}
+    {% for movie in object_list %}
         <div class="one_movie" >
         <h2 align="center">{{ movie.title }}</h2>
         <img src="{{ movie.image.url }}" alt="" align="left">
@@ -18,7 +27,7 @@
         </div>
         <div class="button">
             <div class="link">
-                <a href="{{ movie.id }}" class="link">К Фильму</a>
+                <a href="/movies/{{ movie.id }}" class="link">К Фильму</a>
             </div>
         </div>
         </div>
@@ -26,7 +35,7 @@
     <div class="paginator">
             {% for p in page_obj.paginator.page_range  %}
                 <li class="pags_border">
-                    <a href="?page={{ p }}" class="pags">{{ p }}</a>
+                    <a href="?{{ q }}page={{ p }}" class="pags">{{ p }}</a>
                 </li>
             {% endfor %}
     </div>

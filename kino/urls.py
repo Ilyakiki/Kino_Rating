@@ -9,6 +9,7 @@ urlpatterns = [
     path('actors/<int:pk>',views.DetailActor.as_view(),name='actor_detail'),
     path('directors/<int:pk>',views.DetailDirector.as_view(),name='director_detail'),
     path('directors/',views.ListDirector.as_view(),name='directors'),
+    path('search/',views.Search.as_view(),name='search'),
     path('movies/<int:pk>',views.DetailMovie.as_view(),name='movie_detail'),
     path('movies/',views.ListMovie.as_view(),name='movies'),
     path('',views.glavnaya,name='main'),
