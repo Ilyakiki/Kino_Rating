@@ -2,6 +2,58 @@ from django.test import TestCase
 from kino.models import Movie,Actor,Director
 # Create your tests here.
 
+
+class MovieModelTestCase(TestCase):
+    @staticmethod
+    def print_info(message):
+        count = Movie.objects.count()
+        print(f'{message}: #all_movies={count}')
+
+    # Подготовка БД
+    def setUp(self):
+        print('-' * 20)
+        self.print_info("Start setUp")
+        self.movie = Movie.objects.create(title='Трансформеры',year=2004,budget=10000,description='Ну трансформеры',link_on_youtube=None)
+        Movie.objects.create(title='Трансформеры 2',year=2008,budget=2032000,description='Ну трансформеры 2',link_on_youtube=None)
+        Movie.objects.create(title='Трансформеры 3',year=2012,budget=100837400,description='Ну трансформеры 3',link_on_youtube=None)
+        self.print_info("Finish setUp")
+
+        # Проверка создания объекта Movie
+    def test_movie_create(self):
+        self.print_info('Start test_movie_create')
+        self.assertEqual(self.movie.title, 'Трансформеры')
+        self.assertEqual(self.movie.year, 2004)
+        self.assertEqual(self.movie.budget, 10000)
+        self.assertEqual(self.movie.description, 'Ну трансформеры')
+        self.print_info('Finish test_movie_create')
+        # Проверка удаления объекта Movie
+    def test_movie_delete(self):
+        self.print_info('Start test_movie_delete')
+        open = Movie.objects.get(title='Трансформеры')
+        open.delete()
+        movie = Movie.objects.all()
+        self.assertEqual(len(movie), 2)
+        self.print_info('Finish test_movie_delete')
+
+    # Проверка получения всех записей Movie
+    def test_movie_get_all_records(self):
+        self.print_info('Start test_movie_get_all_records')
+        movie = Movie.objects.all()
+        self.assertEqual(len(movie), 3)
+        self.print_info('Finish test_movie_get_all_records')
+    # Проверка получения одной записи Movie
+    def test_movie_get_one_record(self):
+        self.print_info('Start test_movie_get_one_record')
+        open = Movie.objects.get(title='Трансформеры')
+        self.assertEqual(open.year, 2004)
+        self.assertEqual(open.budget, 10000)
+        self.print_info('Finish test_movie_get_one_record')
+
+    def test_movie_str(self):
+        self.print_info('Start test_movie_str')
+        expected = 'Трансформеры 10000'
+        self.assertEqual(str(self.movie), expected)
+        self.print_info('Finish test_movie_str')
 class ActorModelTestCase(TestCase):
     @staticmethod
     def print_info(message):

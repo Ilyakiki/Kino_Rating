@@ -46,9 +46,9 @@ class Movie(models.Model):
     year = models.IntegerField(blank=True)
     budget = models.IntegerField(validators=[MinValueValidator(1)])
     director = models.ForeignKey(Director,on_delete=models.CASCADE,null=True,blank=True,default=None)
-    image = models.FileField(upload_to='my_gallery')
+    image = models.FileField(upload_to='my_gallery',null=True,default=None)
     description = models.CharField(max_length=10000)
-    actors=models.ManyToManyField(Actor)
+    actors=models.ManyToManyField(Actor,null=True,default=None)
     link_on_youtube=models.CharField(max_length=1000,null=True)
 
     def __str__(self):
