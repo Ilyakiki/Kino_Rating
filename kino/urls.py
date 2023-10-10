@@ -14,7 +14,9 @@ urlpatterns = [
     path('movies/', views.ListMovie.as_view(), name='movies'),
     path('api/v1/director/', views.DirectorAPIList.as_view()),
     path('api/v1/director/detail/<int:pk>/', views.DirectorAPIDetail.as_view()),
-    path('api/v1/actor/', views.DirectorAPIList.as_view()),
-    path('api/v1/actor/detail/<int:pk>/', views.DirectorAPIDetail.as_view()),
+    path('api/v1/actor/', views.ActorAPIList.as_view()),
+    path('api/v1/actor/detail/<int:pk>/', views.ActorAPIDetail.as_view()),
+    path('api/v1/movie/', views.MovieAPIList.as_view()),
+    path('api/v1/movie/detail/<int:pk>/', views.MovieAPIDetail.as_view()),
     path('', views.glavnaya, name='main'),
 ]

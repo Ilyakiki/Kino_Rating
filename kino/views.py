@@ -157,3 +157,16 @@ class ActorAPIDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
     permission_classes = (IsAdminOrReadOnly,)
+
+
+# Получение объектов Movie
+class MovieAPIList(generics.ListAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+
+# Получение/изменение объекта Movie
+class MovieAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+    permission_classes = (IsAdminOrReadOnly,)
