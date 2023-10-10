@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
-
+import requests
+from rest_framework import generics
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import RegisterUserForm, LoginUserForm
 from .models import Movie, Director, Actor
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormView, CreateView
-import requests
+from kino.serializers import *
+from kino.permitions import *
 from django.contrib.auth.views import LoginView
 from django.urls import reverse
 from django.contrib.auth import logout, login
@@ -129,3 +131,15 @@ class Search(ListView):
         context = super().get_context_data(*args, **kwargs)
         context['q'] = f'{self.request.GET.get("q")}&'
         return context
+
+
+class DirectorAPIList(generics.ListAPIView):
+    queryset = Director.objects.all()
+    serializer_class = DirectorSerializer
+
+class DirectorAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Director.objects.all()
+    serializer_class = DirectorSerializer
+    permission_classes = (IsAdminOrReadOnly,)
+
+

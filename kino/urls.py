@@ -12,6 +12,8 @@ urlpatterns = [
     path('search/',views.Search.as_view(),name='search'),
     path('movies/<int:pk>',views.DetailMovie.as_view(),name='movie_detail'),
     path('movies/',views.ListMovie.as_view(),name='movies'),
+    path('api/v1/director/',views.DirectorAPIList.as_view()),
+    path('api/v1/director/detail/<int:pk>/',views.DirectorAPIDetail.as_view()),
     path('',views.glavnaya,name='main'),
 ]
 
