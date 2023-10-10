@@ -133,13 +133,27 @@ class Search(ListView):
         return context
 
 
+# Получение объектов Director
 class DirectorAPIList(generics.ListAPIView):
     queryset = Director.objects.all()
     serializer_class = DirectorSerializer
 
+
+# Получение/изменение объекта Director
 class DirectorAPIDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Director.objects.all()
     serializer_class = DirectorSerializer
     permission_classes = (IsAdminOrReadOnly,)
 
 
+# Получение объектов Actor
+class ActorAPIList(generics.ListAPIView):
+    queryset = Actor.objects.all()
+    serializer_class = ActorSerializer
+
+
+# Получение/изменение объекта Actor
+class ActorAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Actor.objects.all()
+    serializer_class = ActorSerializer
+    permission_classes = (IsAdminOrReadOnly,)
